@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Resources — Tutor</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/static/style.css?v=3">
+</head>
+<body>
+
+<nav class="topnav">
+  <a href="/" class="topnav-link">Home</a>
+  <a href="/visualize" class="topnav-link">Visualize</a>
+  <a href="/resources" class="topnav-link is-active">Resources</a>
+  <a href="/wellbeing" class="topnav-link">Wellbeing</a>
+</nav>
+
+<header class="topbar">
+  <div class="brand">
+    <span class="brand-mark">◍</span>
+    <div>
+      <div class="brand-title">Resources</div>
+      <div class="brand-sub">shared by students, rated by students</div>
+    </div>
+  </div>
+  <div class="topbar-controls">
+    <label class="field">
+      <span class="field-label">student</span>
+      <input id="student-id" type="text" value="student1" spellcheck="false">
+    </label>
+  </div>
+</header>
+
+<main class="res-panel">
+  <!-- MODE SWITCH -->
+  <div class="res-mode-tabs">
+    <button id="res-mode-find" class="res-mode-tab is-active" type="button">Find resources</button>
+    <button id="res-mode-share" class="res-mode-tab" type="button">Share a resource</button>
+  </div>
+
+  <!-- FIND VIEW -->
+  <div id="res-find-view">
+    <div class="res-search-bar">
+      <input id="res-search" type="text" placeholder="Search by title, description, uploader, or tag…" spellcheck="false">
+    </div>
+    <div class="res-filters">
+      <label class="field">
+        <span class="field-label">subject</span>
+        <select id="res-filter-subject"><option value="">all subjects</option></select>
+      </label>
+      <label class="field">
+        <span class="field-label">format</span>
+        <select id="res-filter-format"><option value="">all formats</option></select>
+      </label>
+      <label class="field">
+        <span class="field-label">sort</span>
+        <select id="res-filter-sort">
+          <option value="recent">most recent</option>
+          <option value="rating">highest rated</option>
+        </select>
+      </label>
+    </div>
+
+    <div id="res-compare-bar" class="res-compare-bar" hidden>
+      <span id="res-compare-count"></span>
+      <button id="res-compare-btn" class="btn btn-primary" type="button">Compare selected</button>
+      <button id="res-compare-clear" class="btn" type="button">Clear</button>
+    </div>
+    <div id="res-list" class="res-list"></div>
+  </div>
+
+  <!-- SHARE VIEW -->
+  <div id="res-share-view" hidden>
+    <div id="res-share-form" class="res-share-form">
+      <div class="res-share-tabs">
+        <button class="res-share-tab is-active" data-mode="upload" type="button">Upload a file</button>
+        <button class="res-share-tab" data-mode="link" type="button">Add a link (YouTube, etc.)</button>
+      </div>
+
+      <label class="field">
+        <span class="field-label">title</span>
+        <input id="res-title" type="text" placeholder="e.g. Binary search, visually explained">
+      </label>
+      <label class="field">
+        <span class="field-label">description</span>
+        <textarea id="res-description" rows="2" placeholder="What is this and why is it useful?"></textarea>
+      </label>
+      <label class="field">
+        <span class="field-label">subject (optional)</span>
+        <select id="res-subject"><option value="">none / general</option></select>
+      </label>
+
+      <div id="res-upload-fields">
+        <label class="field">
+          <span class="field-label">format</span>
+          <select id="res-upload-format"></select>
+        </label>
+        <label class="field">
+          <span class="field-label">file</span>
+          <input id="res-file" type="file">
+        </label>
+      </div>
+
+      <div id="res-link-fields" hidden>
+        <label class="field">
+          <span class="field-label">format</span>
+          <select id="res-link-format"></select>
+        </label>
+        <label class="field">
+          <span class="field-label">url</span>
+          <input id="res-url" type="text" placeholder="https://...">
+        </label>
+      </div>
+
+      <button id="res-submit-btn" class="btn btn-primary" type="button">Share</button>
+      <div id="res-share-status" class="viz-status"></div>
+    </div>
+  </div>
+
+  <!-- COMPARE MODAL -->
+  <div id="res-compare-overlay" class="res-detail-overlay" hidden>
+    <div class="res-detail res-compare-detail">
+      <button id="res-compare-close" class="btn" type="button" style="float:right">Close</button>
+      <h2 style="margin:0 0 14px">Compare resources</h2>
+      <div id="res-compare-table-wrap"></div>
+    </div>
+  </div>
+
+  <!-- DETAIL MODAL -->
+  <div id="res-detail-overlay" class="res-detail-overlay" hidden>
+    <div class="res-detail">
+      <button id="res-detail-close" class="btn" type="button" style="float:right">Close</button>
+      <div id="res-detail-body"></div>
+    </div>
+  </div>
+</main>
+
+<footer class="statusbar">
+  <span id="res-footer-text">ready</span>
+</footer>
+
+<script src="/static/resources.js?v=3"></script>
+</body>
+</html>

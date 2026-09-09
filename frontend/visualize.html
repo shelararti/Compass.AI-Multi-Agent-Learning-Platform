@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Visualize — Tutor</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/static/style.css?v=3">
+</head>
+<body>
+
+<nav class="topnav">
+  <a href="/" class="topnav-link">Home</a>
+  <a href="/visualize" class="topnav-link is-active">Visualize</a>
+  <a href="/resources" class="topnav-link">Resources</a>
+  <a href="/wellbeing" class="topnav-link">Wellbeing</a>
+</nav>
+
+<header class="topbar">
+  <div class="brand">
+    <span class="brand-mark">◍</span>
+    <div>
+      <div class="brand-title">Visualize</div>
+      <div class="brand-sub">lecture video → mindmap → rendered visuals</div>
+    </div>
+  </div>
+</header>
+
+<main class="viz-panel">
+  <p class="hint">
+    Upload a lecture video. It gets transcribed and each chunk is classified into a
+    domain (process, formula, data, narrative, spatial, conceptual, scene) and its
+    content extracted — shown here as a mindmap as it comes in. Correct anything that's
+    misclassified, then render the final video with visuals overlaid.
+  </p>
+
+  <div class="viz-upload">
+    <input id="viz-file" type="file" accept="video/*">
+    <button id="viz-upload-btn" class="btn btn-primary" type="button">Upload &amp; analyze</button>
+  </div>
+
+  <div id="viz-status" class="viz-status">no video uploaded yet</div>
+  <div class="viz-progress-track"><div id="viz-progress-fill" class="viz-progress-fill" style="width:0%"></div></div>
+
+  <div id="viz-body" class="viz-body" hidden>
+    <div>
+      <div class="viz-mindmap-wrap">
+        <svg id="viz-mindmap-svg" viewBox="0 0 900 480" preserveAspectRatio="xMidYMid meet"></svg>
+      </div>
+      <div id="viz-legend" class="viz-legend"></div>
+
+      <video id="viz-source-video" class="viz-source-video" controls hidden></video>
+
+      <div class="viz-render-bar">
+        <label class="field">
+          <span class="field-label">layout</span>
+          <select id="viz-layout">
+            <option value="full">full — visuals only</option>
+            <option value="pip">pip — original in corner</option>
+            <option value="splitscreen">splitscreen — side by side</option>
+          </select>
+        </label>
+        <button id="viz-render-btn" class="btn btn-primary" type="button">Render final video</button>
+      </div>
+
+      <video id="viz-output-video" class="viz-output-video" controls hidden></video>
+      <a id="viz-download-link" class="btn" hidden download>Download rendered video</a>
+    </div>
+
+    <aside id="viz-chunk-panel" class="viz-chunk-panel">
+      <p class="hint" style="margin:0">Click a node in the mindmap to see that chunk's detail here.</p>
+    </aside>
+  </div>
+</main>
+
+<footer class="statusbar">
+  <span id="viz-footer-text">ready</span>
+</footer>
+
+<script src="/static/visualize.js"></script>
+</body>
+</html>

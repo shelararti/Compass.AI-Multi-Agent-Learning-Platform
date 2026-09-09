@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wellbeing — Tutor</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/static/style.css?v=4">
+</head>
+<body>
+
+<nav class="topnav">
+  <a href="/" class="topnav-link">Home</a>
+  <a href="/visualize" class="topnav-link">Visualize</a>
+  <a href="/resources" class="topnav-link">Resources</a>
+  <a href="/wellbeing" class="topnav-link is-active">Wellbeing</a>
+</nav>
+
+<header class="topbar">
+  <div class="brand">
+    <span class="brand-mark">◍</span>
+    <div>
+      <div class="brand-title">Wellbeing</div>
+      <div class="brand-sub">a private space to check in -- not a replacement for a real person</div>
+    </div>
+  </div>
+  <div class="topbar-controls">
+    <label class="field">
+      <span class="field-label">student</span>
+      <input id="student-id" type="text" value="student1" spellcheck="false">
+    </label>
+  </div>
+</header>
+
+<div id="wb-crisis-banner" class="wb-crisis-banner">
+  <span id="wb-crisis-text"></span>
+</div>
+
+<main class="wb-panel">
+  <div class="wb-mode-tabs">
+    <button id="wb-mode-checkin" class="wb-mode-tab is-active" type="button">Check in</button>
+    <button id="wb-mode-journal" class="wb-mode-tab" type="button">Journal</button>
+    <button id="wb-mode-chat" class="wb-mode-tab" type="button">Chat</button>
+    <button id="wb-mode-breathe" class="wb-mode-tab" type="button">Breathe</button>
+    <button id="wb-mode-exercises" class="wb-mode-tab" type="button">Coping exercises</button>
+    <button id="wb-mode-staff" class="wb-mode-tab" type="button">Staff view</button>
+  </div>
+
+  <!-- CHECK-IN VIEW -->
+  <div id="wb-checkin-view">
+    <div class="panel">
+      <div class="hint">How are you feeling right now?</div>
+      <div id="wb-mood-picker" class="wb-mood-picker"></div>
+      <label class="field" style="margin-top:14px">
+        <span class="field-label">note (optional)</span>
+        <textarea id="wb-mood-note" rows="2" placeholder="Anything you want to add?"></textarea>
+      </label>
+      <button id="wb-checkin-submit" class="btn btn-primary" style="margin-top:12px">Check in</button>
+      <div id="wb-checkin-status" class="viz-status"></div>
+    </div>
+
+    <div class="panel" style="margin-top:18px">
+      <div class="hint">Your recent check-ins</div>
+      <div id="wb-checkin-history" class="wb-checkin-history"></div>
+    </div>
+  </div>
+
+  <!-- JOURNAL VIEW -->
+  <div id="wb-journal-view" hidden>
+    <div class="panel">
+      <div class="hint">Write freely -- this is just between you and this page.</div>
+      <textarea id="wb-journal-text" rows="6" placeholder="What's on your mind today?"></textarea>
+      <button id="wb-journal-submit" class="btn btn-primary" style="margin-top:12px">Save entry</button>
+      <div id="wb-journal-status" class="viz-status"></div>
+      <div id="wb-journal-reflection" class="wb-reflection" hidden></div>
+    </div>
+
+    <div class="panel" style="margin-top:18px">
+      <div class="hint">Past entries</div>
+      <div id="wb-journal-history" class="wb-journal-history"></div>
+    </div>
+  </div>
+
+  <!-- CHAT VIEW -->
+  <div id="wb-chat-view" hidden>
+    <div class="panel wb-chat-panel">
+      <div class="hint">Talk it through -- this is a supportive companion, not a therapist. If you're in crisis, use the contact above.</div>
+      <div id="wb-chat-messages" class="wb-chat-messages"></div>
+      <div class="wb-chat-input-row">
+        <textarea id="wb-chat-text" rows="2" placeholder="Type a message…"></textarea>
+        <button id="wb-chat-send" class="btn btn-primary">Send</button>
+      </div>
+      <div id="wb-chat-status" class="viz-status"></div>
+    </div>
+  </div>
+
+  <!-- BREATHE VIEW -->
+  <div id="wb-breathe-view" hidden>
+    <div class="panel wb-breathe-panel">
+      <label class="field wb-breathe-pattern-row">
+        <span class="field-label">pattern</span>
+        <select id="wb-breathe-pattern">
+          <option value="box">Box breathing (4-4-4-4)</option>
+          <option value="478">4-7-8 relaxing breath</option>
+          <option value="calm">Calm breath (4-6)</option>
+        </select>
+      </label>
+      <div class="wb-breathe-stage">
+        <div id="wb-breathe-circle" class="wb-breathe-circle">
+          <span id="wb-breathe-phase">Ready</span>
+        </div>
+      </div>
+      <div class="wb-breathe-controls">
+        <button id="wb-breathe-toggle" class="btn btn-primary" type="button">Start</button>
+        <span id="wb-breathe-count" class="wb-breathe-count"></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- EXERCISES VIEW -->
+  <div id="wb-exercises-view" hidden>
+    <div id="wb-exercises-list" class="wb-exercises-list"></div>
+  </div>
+
+  <!-- STAFF VIEW -->
+  <div id="wb-staff-view" hidden>
+    <div class="hint">
+      Flagged journal entries awaiting review. In this build there is no real
+      authentication in front of this page -- add one before using it with
+      real students.
+    </div>
+    <div id="wb-staff-list" class="wb-staff-list"></div>
+  </div>
+</main>
+
+<footer class="statusbar">
+  <span id="wb-footer-text">ready</span>
+</footer>
+
+<script src="/static/wellbeing.js?v=2"></script>
+</body>
+</html>

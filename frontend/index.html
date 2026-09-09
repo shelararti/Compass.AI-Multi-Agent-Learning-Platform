@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Agentic AI &amp; LLMs — Tutor</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/static/style.css?v=3">
+</head>
+<body>
+
+<nav class="topnav">
+  <a href="/" class="topnav-link is-active">Home</a>
+  <a href="/visualize" class="topnav-link">Visualize</a>
+  <a href="/resources" class="topnav-link">Resources</a>
+  <a href="/wellbeing" class="topnav-link">Wellbeing</a>
+</nav>
+
+<header class="topbar">
+  <div class="brand">
+    <span class="brand-mark">◍</span>
+    <div>
+      <div id="brand-title" class="brand-title">Tutor</div>
+      <div class="brand-sub">tutor instrument</div>
+    </div>
+  </div>
+  <div class="topbar-controls">
+    <label class="field">
+      <span class="field-label">subject</span>
+      <button id="subject-switch" class="btn" type="button">choose a subject</button>
+    </label>
+    <label class="field">
+      <span class="field-label">student</span>
+      <input id="student-id" type="text" value="student1" spellcheck="false">
+    </label>
+    <label class="field">
+      <span class="field-label">level</span>
+      <select id="level-select">
+        <option value="beginner">beginner</option>
+        <option value="intermediate">intermediate</option>
+        <option value="advanced">advanced</option>
+      </select>
+    </label>
+  </div>
+</header>
+
+<!-- SUBJECT PICKER -->
+<section id="subject-picker" class="subject-picker">
+  <div class="subject-picker-inner">
+    <p class="hint">Pick a subject offered by us, or upload your own course PDF and the tutor will build topics from it.</p>
+
+    <div class="subject-group">
+      <div class="subject-group-label">offered by us</div>
+      <div id="subject-list" class="subject-list"></div>
+    </div>
+
+    <div class="subject-group">
+      <div class="subject-group-label">from your own PDF</div>
+      <div class="subject-upload">
+        <input id="subject-pdf-input" type="file" accept="application/pdf">
+        <input id="subject-pdf-title" type="text" placeholder="Subject name (optional)" spellcheck="false">
+        <button id="subject-pdf-submit" class="btn btn-primary" type="button">Upload &amp; build topics</button>
+      </div>
+      <div id="subject-upload-status" class="hint"></div>
+    </div>
+  </div>
+</section>
+
+<div id="app-shell" hidden>
+
+<section class="topology" aria-label="Topic mastery map">
+  <svg id="topology-svg" viewBox="0 0 1000 140" preserveAspectRatio="xMidYMid meet"></svg>
+</section>
+
+<nav class="tabs" role="tablist" aria-label="Mode">
+  <button class="tab is-active" data-mode="chat" role="tab" aria-selected="true">01 · chat</button>
+  <button class="tab" data-mode="quiz" role="tab" aria-selected="false">02 · quiz</button>
+  <button class="tab" data-mode="code" role="tab" aria-selected="false">03 · code</button>
+  <button class="tab" data-mode="progress" role="tab" aria-selected="false">04 · progress</button>
+</nav>
+
+<main class="panel">
+
+  <!-- CHAT -->
+  <section id="mode-chat" class="mode-view">
+    <p class="hint">Ask anything about the selected topic. Pick a node above, or just ask — the tutor will find the closest topic on its own.</p>
+    <textarea id="chat-input" rows="3" placeholder="e.g. How does self-attention work?"></textarea>
+    <button id="chat-send" class="btn btn-primary">Ask</button>
+    <div id="chat-output" class="output"></div>
+  </section>
+
+  <!-- QUIZ -->
+  <section id="mode-quiz" class="mode-view" hidden>
+    <p class="hint">Generates 3 questions on the selected topic.</p>
+    <button id="quiz-start" class="btn btn-primary">Start quiz</button>
+    <div id="quiz-output" class="output"></div>
+  </section>
+
+  <!-- CODE -->
+  <section id="mode-code" class="mode-view" hidden>
+    <p class="hint">Generates one hands-on exercise, graded against a rubric.</p>
+    <button id="code-start" class="btn btn-primary">Get a task</button>
+    <div id="code-output" class="output"></div>
+  </section>
+
+  <!-- PROGRESS -->
+  <section id="mode-progress" class="mode-view" hidden>
+    <div id="progress-output" class="output"></div>
+  </section>
+
+</main>
+
+</div><!-- /app-shell -->
+
+<footer class="statusbar">
+  <span id="status-text">ready</span>
+  <span id="topic-indicator">no topic selected — will infer from your question</span>
+</footer>
+
+<script src="/static/app.js"></script>
+</body>
+</html>
