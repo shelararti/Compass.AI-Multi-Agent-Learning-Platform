@@ -1,0 +1,13 @@
+langgraph>=1.2.0
+fastapi>=0.110
+uvicorn>=0.29
+pypdf>=4.0
+python-multipart>=0.0.9
+
+# Visualize page (tutor_backend/visualizer/): lecture video -> transcribe
+# -> classify+extract per chunk -> render visuals track. Also needs
+# ffmpeg on PATH (not pip-installable).
+faster-whisper>=1.0
+matplotlib>=3.8
+numpy>=1.26
+pillow>=10.1
