@@ -1,0 +1,26 @@
+{
+  "id": "7101e98de63a",
+  "title": "power bi",
+  "description": "sdfghbnjk",
+  "subject_id": null,
+  "format": "pdf",
+  "uploaded_by": "student1",
+  "uploaded_at": 1785408650.8130193,
+  "file_path": "C:\\Users\\ARATI\\Desktop\\AI_Tutor\\tutor_backend\\tutor_uploads\\resources\\7101e98de63a\\powerBI_projets.pdf",
+  "url": null,
+  "ratings": [],
+  "classifications": [
+    {
+      "student_id": "student1",
+      "level": "beginner",
+      "tags": [
+        "exam-prep"
+      ],
+      "at": 1785408677.4399023
+    }
+  ],
+  "skills": [
+    "data",
+    "digital_literacy"
+  ]
+}

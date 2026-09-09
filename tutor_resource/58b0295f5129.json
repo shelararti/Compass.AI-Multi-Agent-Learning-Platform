@@ -1,0 +1,25 @@
+{
+  "id": "58b0295f5129",
+  "title": "SQL",
+  "description": "sdfghjkbn",
+  "subject_id": null,
+  "format": "pdf",
+  "uploaded_by": "student1",
+  "uploaded_at": 1785408382.8444269,
+  "file_path": "C:\\Users\\ARATI\\Desktop\\AI_Tutor\\tutor_backend\\tutor_uploads\\resources\\58b0295f5129\\SQL_ with practice exercises, Learn SQL Fast ( PDFDrive ).pdf",
+  "url": null,
+  "ratings": [],
+  "classifications": [
+    {
+      "student_id": "student1",
+      "level": "beginner",
+      "tags": [
+        "beginner-friendly"
+      ],
+      "at": 1785408479.8585289
+    }
+  ],
+  "skills": [
+    "data"
+  ]
+}
