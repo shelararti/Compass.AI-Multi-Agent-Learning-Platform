@@ -1,0 +1,23 @@
+{
+  "student_id": "student1",
+  "checkins": [
+    {
+      "mood": 5,
+      "note": "i am feeling good",
+      "at": 1786091710.4328873
+    }
+  ],
+  "journal": [
+    {
+      "id": "d094cb74f9e3",
+      "text": "i am struggling",
+      "reflection": "It can feel overwhelming when things get tough.\n\nYou know what's hard about feeling this way? It's like there are a million thoughts spinning around your head at once, and it's hard to choose which ones to let in.\n\nWhat do you think would be a small step you could take right now to help calm the storm inside?",
+      "flagged": false,
+      "flag_reason": null,
+      "staff_status": null,
+      "staff_note": null,
+      "at": 1786091794.928251
+    }
+  ],
+  "chat": []
+}
